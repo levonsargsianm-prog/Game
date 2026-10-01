@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0e12">
+  <title>Картридж</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main class="shelf">
+    <header class="top">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="brand">
+        <h1>Картридж</h1>
+        <p>Mega Drive · офлайн</p>
+      </div>
+      <button class="install" id="install" hidden>Установить</button>
+    </header>
+
+    <section id="list" class="grid" aria-live="polite"></section>
+
+    <section id="empty" class="empty" hidden>
+      <h2>Полка пустая</h2>
+      <p>Нажми «Добавить игру» и выбери файл ROM из памяти телефона.</p>
+      <p>Подходят .md, .bin, .gen, .smd и .zip.</p>
+    </section>
+
+    <p class="note">Игры и сохранения хранятся только в этом браузере на телефоне.</p>
+  </main>
+
+  <label class="add">
+    <span class="plus">+</span> Добавить игру
+    <input type="file" id="picker" multiple>
+  </label>
+
+  <dialog class="sheet" id="sheet">
+    <h3 id="sheet-title"></h3>
+    <button data-act="play">▶ Играть</button>
+    <button data-act="fresh" id="act-fresh">↺ Начать с начала</button>
+    <button data-act="rename">✎ Переименовать</button>
+    <button data-act="delete" class="danger">🗑 Удалить</button>
+    <button data-act="cancel" class="cancel">Отмена</button>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="db.js"></script>
+  <script src="shelf.js"></script>
+</body>
+</html>
